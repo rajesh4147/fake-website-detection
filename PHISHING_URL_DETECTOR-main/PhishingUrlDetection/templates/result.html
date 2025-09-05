@@ -1,0 +1,19 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
+%}
+<div class="cont">
+  <h1 align="center">{{result}}</h1>
+  {%if result=='Phishing' %}
+  <p class="text-danger">Domain is unsafe</p>
+  <p>This URL is {{confidence}}% likely to be phishing</p>
+  <button type="btn" class="btn" id="report" onclick="report()">report</button>
+  {% else %}
+  <p class="text-success">Domain is Safe</p>
+  <p>This URL is {{100-confidence}}% likely to be legitimate</p>
+  {% endif %}
+  <script>
+    function report() {
+      alert("URL reported successfully");
+    }
+  </script>
+</div>
+{% endblock %}
